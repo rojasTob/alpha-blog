@@ -1,22 +1,36 @@
-<% if @article.errors.any? %>
-  <h3>The following errors prevented the article from being saved</h3>  
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <% if @article.errors.any? %>
+    <h3>The following errors prevented the article from being saved</h3>  
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %> <br/>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+  <div class="row justify-content-center bg-success p-2 text-dark bg-opacity-10 rounded">
+    <div class="col-10">
+      <%= form_with(model: @article, local: true) do |f| %>
+        <div class="form-group row mb-2">
+          <%= f.label :title, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <%= f.label :description, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.text_area :description, rows: 10, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <div class="d-flex justify-content-between">
+            <%= f.submit class: "btn btn-outline-primary"%>
+            <%= link_to 'Return to articles listing', articles_path, {:class => "btn btn-outline-primary"} %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
