@@ -13,3 +13,9 @@ To run migrations
 ```
 rails db:migrate
 ```
+
+To run the app
+
+```
+rails s
+```
