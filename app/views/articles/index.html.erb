@@ -1,28 +1,26 @@
-<div class="page-content">
-  <h1 class="text-center mt-4 mb-4">Articles</h1>
-  <div class="container">
-    <div class="d-flex flex-column align-items-center">
-      <%= link_to 'Create new article', new_article_path, {:class => "btn btn-primary"} %>
-      <% @articles.each do |article| %>
-        <div class="justify-content-md-center">
-          <div class="mt-4">
-            <div class="card text-center shadow mb-5 bg-white rounded" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title"><%= article.title %></h5>
-                <p class="card-text"><%= truncate(article.description, length: 100) %></p>
-                <br/>
-                <%= link_to 'Show', article_path(article.id), {:class => "btn btn-outline-primary"} %>
-                <%= link_to 'Edit', edit_article_path(article.id), {:class => "btn btn-outline-primary"} %>
-                <%= link_to 'Delete', article_path(article), data: {"turbo-method": :delete , "turbo-confirm": "Are you sure?"}, class: "btn btn-outline-primary" %>
-              </div>
-              <div class="card-footer text-muted">
-                <small>by Autor, created <%= time_ago_in_words(article.created_at) %></small>
-              </div>
+<h1 class="text-center mt-4 mb-4">Articles</h1>
+<div class="container">
+  <div class="d-flex flex-column align-items-center">
+    <%= link_to 'Create new article', new_article_path, {:class => "btn btn-primary"} %>
+    <% @articles.each do |article| %>
+      <div class="justify-content-md-center">
+        <div class="mt-4">
+          <div class="card text-center shadow mb-5 bg-white rounded" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= article.title %></h5>
+              <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+              <br/>
+              <%= link_to 'Show', article_path(article.id), {:class => "btn btn-outline-primary"} %>
+              <%= link_to 'Edit', edit_article_path(article.id), {:class => "btn btn-outline-primary"} %>
+              <%= link_to 'Delete', article_path(article), data: {"turbo-method": :delete , "turbo-confirm": "Are you sure?"}, class: "btn btn-outline-primary" %>
+            </div>
+            <div class="card-footer text-muted">
+              <small>by Autor, created <%= time_ago_in_words(article.created_at) %></small>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
 

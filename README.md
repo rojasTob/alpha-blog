@@ -17,5 +17,12 @@ rails db:migrate
 To run the app
 
 ```
+yarn run build:css
 rails s
 ```
+
+Or run
+```
+./bin/dev
+```
+
