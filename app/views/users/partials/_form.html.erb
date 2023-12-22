@@ -1,0 +1,33 @@
+<div class="container">
+  <%= render 'shared/errors', obj: @user %>
+
+  <div class="row justify-content-center bg-success p-2 text-dark bg-opacity-10 rounded">
+    <div class="col-10">
+      <%= form_with(model: @user, local: true) do |f| %>
+        <div class="form-group row mb-2">
+          <%= f.label :username, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.text_field :username, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <%= f.label :email, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <%= f.label :password, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row mb-3">
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Sign up", class: "btn btn-outline-primary"%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
