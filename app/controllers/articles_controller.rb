@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(articles_params) #this is the way to get the params because is not permited to take them directly from the params obj
+    @article.user = User.first #Temporary solution
     if @article.save
       flash[:notice] = "Article was created successfully" # to create a kind of message to show in other page
       redirect_to article_path(@article) #shorten path is redirect_to @article
