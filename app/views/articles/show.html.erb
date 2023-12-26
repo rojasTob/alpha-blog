@@ -8,7 +8,7 @@
               <hr class="my-4">
               <p class="card-text"><%= simple_format(@article.description) %></p>
               <br/>
-              <% if logged_in? && @article.user == current_user %>
+              <% if logged_in? && (@article.user == current_user || current_user.admin) %>
                 <%= link_to 'Edit', edit_article_path(@article.id), {:class => "btn btn-outline-primary"} %>
                 <%= link_to 'Delete', article_path(@article), data: {"turbo-method": :delete , "turbo-confirm": "Are you sure?"}, class: "btn btn-outline-primary" %>
               <% end %>
