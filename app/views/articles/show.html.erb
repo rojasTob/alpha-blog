@@ -13,7 +13,9 @@
               <%= link_to "Return to articles" , articles_path, {:class => "btn btn-outline-primary"} %>
             </div>
             <div class="card-footer text-muted">
-              <small>by <%= @article.user.username if @article.user%>, created <%= time_ago_in_words(@article.created_at) %></small>
+              <% if @article.user %>
+                <small>by <%= link_to @article.user.username, user_path(@article.user) %>, created <%= time_ago_in_words(@article.created_at) %></small>
+              <% end %>
             </div>
           </div>
         </div>
