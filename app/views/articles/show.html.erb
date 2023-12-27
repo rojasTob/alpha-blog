@@ -7,6 +7,11 @@
               <h5 class="card-title"><%= @article.title %></h5>
               <hr class="my-4">
               <p class="card-text"><%= simple_format(@article.description) %></p>
+              <%if @article.categories.any?%>
+                <div class="mb-2">
+                  <%= render @article.categories %>
+                </div>
+              <%end%>
               <br/>
               <% if logged_in? && (@article.user == current_user || current_user.admin) %>
                 <%= link_to 'Edit', edit_article_path(@article.id), {:class => "btn btn-outline-primary"} %>

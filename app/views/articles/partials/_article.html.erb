@@ -7,6 +7,11 @@
             <div class="card-body">
               <h5 class="card-title"><%= article.title %></h5>
               <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+              <%if article.categories.any?%>
+                <div class="mb-2">
+                  <%= render article.categories %>
+                </div>
+              <%end%>
               <br/>
               <%= link_to 'Show', article_path(article.id), {:class => "btn btn-outline-primary"} %>
               <% if logged_in? && (article.user == current_user || current_user.admin ) %>
