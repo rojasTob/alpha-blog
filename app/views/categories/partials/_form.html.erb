@@ -11,8 +11,9 @@
           </div>
         </div>
         <div class="form-group row mb-3">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-between">
             <%= f.submit class: "btn btn-outline-primary btn-lg" %>
+            <%= link_to 'Return to categories listing', categories_path, {:class => "btn btn-outline-primary"} %>
           </div>
         </div>
       <% end %>
