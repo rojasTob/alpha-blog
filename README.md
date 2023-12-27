@@ -14,6 +14,12 @@ To run migrations
 rails db:migrate
 ```
 
+To run tests
+```
+rails test
+```
+
+
 To run the app
 
 ```
